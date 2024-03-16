@@ -5,6 +5,13 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 const collectEmployees = function() {
     let run = true;
     const employees = [];
+    
+    // add formatter to change all salaries to USD
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+
     while (run === true){
       const employee = {};
       const firstName = window.prompt("What is your first name?");
@@ -31,7 +38,13 @@ const collectEmployees = function() {
         salary = 0
         console.log(salary);
       }
-      employee.salary = salary;
+      // format salary to USD
+      const formattedNumber = formatter.format(salary);
+
+      // add USD salary to employee object
+      employee.salary = formattedNumber;
+
+      // push employee to the employees array
       employees.push(employee);
 
       const quit = window.confirm("Add another employee?");
