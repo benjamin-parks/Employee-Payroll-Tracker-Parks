@@ -8,17 +8,11 @@ const employees = [];
 const collectEmployees = function() {
     let run = true;
     const employees = [];
-    
-    // add formatter to change all salaries to USD
-    const formatter = new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    });
 
     while (run === true){
       const employee = {};
       const firstName = window.prompt("What is your first name?");
-      console.log("firstName", firstName);
+      // console.log("firstName", firstName);
       if (firstName === null){
         run = false;
         console.log(run)
@@ -26,7 +20,7 @@ const collectEmployees = function() {
       employee.firstName = firstName;
 
       const lastName = window.prompt("What is your last name?");
-      console.log("lastName", lastName);
+      // console.log("lastName", lastName);
       if (lastName === null){
         run = false;
         console.log(run);
@@ -39,7 +33,7 @@ const collectEmployees = function() {
       }
       if (isNaN(salary)){
         salary = 0
-        console.log(salary);
+        // console.log(salary);
       }
       // // format salary to USD
       // const formattedNumber = formatter.format(salary);
@@ -51,10 +45,10 @@ const collectEmployees = function() {
       employees.push(employee);
 
       const quit = window.confirm("Add another employee?");
-      console.log("quit", quit);
+      // console.log("quit", quit);
       if (quit === false){
         run = false;
-        console.log(run);
+        // console.log(run);
       
     }
   }
@@ -66,11 +60,11 @@ const collectEmployees = function() {
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
   let money = 0;
-  console.log(employeesArray);
+  // console.log(employeesArray);
   for (const employee of employeesArray){
-    console.log(employee.salary);
+    // console.log(employee.salary);
     money += employee.salary;
-    console.log("Total Money", money)
+    // console.log("Total Money", money)
   }
   money /= employeesArray.length;
   console.log(`The average salary is ${money}.`);
